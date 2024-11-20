@@ -1,0 +1,26 @@
+import RedirectContact from './RedirectContact'
+import { useTranslation } from 'react-i18next'
+
+export default function Adventure() {
+  const { t } = useTranslation()
+
+  return (
+    <div className="container mx-auto">
+      <section className="py-16 px-6">
+        <div className="lg:flex justify-between items-center pb-8">
+          <h2 className="text-lg font-bold lg:text-4xl">
+            {t('adventure.tickets_btn')}
+          </h2>
+          <RedirectContact />
+        </div>
+        <div className="overflow-hidden rounded-2xl">
+          <div className="w-full lg:h-[40rem] h-100 rounded-2xl">
+            <video loop muted autoPlay className="pointer-events-none">
+              <source src="/video.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

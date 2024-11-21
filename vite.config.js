@@ -3,12 +3,12 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Sizin layihənizin əsas URL-sini göstərin
+  base: '/',
   build: {
-    outDir: 'dist', // Build fayllarının qovluğu
+    outDir: 'dist',
     rollupOptions: {
       output: {
-        manualChunks: undefined, // Lazımsız bölmələrin qarşısını almaq üçün
+        manualChunks: undefined,
       },
     },
   },

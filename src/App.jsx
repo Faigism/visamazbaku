@@ -61,10 +61,10 @@ function App() {
   }
 
   return (
-    <Router basename={window.location.pathname || ''}>
+    <Router>
       <ScrollToTop />
       <Navbar />
-      <Routes>
+      <Routes basename={window.location.pathname || ''}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact-us" element={<Contact />} />

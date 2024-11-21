@@ -61,7 +61,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <Router basename={window.location.pathname || ''}>
       <ScrollToTop />
       <Navbar />
       <Routes>

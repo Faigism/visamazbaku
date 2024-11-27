@@ -78,7 +78,7 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="text-center">
                 <img
-                  src="aboutUsProfile.jpg"
+                  src="/assets/photos/aboutUsProfile.jpg"
                   alt="Komanda üzvü"
                   className="rounded-full w-32 h-32 mx-auto mb-4"
                 />
@@ -87,7 +87,7 @@ export default function About() {
               </div>
               <div className="text-center">
                 <img
-                  src="aboutUsProfile.jpg"
+                  src="/assets/photos/aboutUsProfile.jpg"
                   alt="Komanda üzvü"
                   className="rounded-full w-32 h-32 mx-auto mb-4"
                 />
@@ -96,7 +96,7 @@ export default function About() {
               </div>
               <div className="text-center">
                 <img
-                  src="aboutUsProfile.jpg"
+                  src="/assets/photos/aboutUsProfile.jpg"
                   alt="Komanda üzvü"
                   className="rounded-full w-32 h-32 mx-auto mb-4"
                 />
@@ -105,7 +105,7 @@ export default function About() {
               </div>
               <div className="text-center">
                 <img
-                  src="aboutUsProfile.jpg"
+                  src="/assets/photos/aboutUsProfile.jpg"
                   alt="Komanda üzvü"
                   className="rounded-full w-32 h-32 mx-auto mb-4"
                 />

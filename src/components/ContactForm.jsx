@@ -182,7 +182,11 @@ export default function ContactForm() {
           </h2>
           <p className="text-gray-600 text-lg mb-8">{t('contactForm.desc')}</p>
           <div className="flex items-center">
-            <img src="/contactImg.jpg" alt="Envelope" className="rounded-lg" />
+            <img
+              src="/assets/photos/contactImg.jpg"
+              alt="Envelope"
+              className="rounded-lg"
+            />
           </div>
         </div>
 

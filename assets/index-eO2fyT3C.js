@@ -9435,7 +9435,7 @@ const WN = () => {
           ref: n,
           children: [
             x.jsx('img', {
-              src: '/langGlobe.png',
+              src: '/assets/photos/langGlobe.png',
               alt: 'globe',
               className: 'w-[2.2rem] h-[2.2rem] cursor-pointer',
               onClick: d,
@@ -11854,7 +11854,7 @@ function i3() {
                     className: 'text-center',
                     children: [
                       x.jsx('img', {
-                        src: 'aboutUsProfile.jpg',
+                        src: '/assets/photos/aboutUsProfile.jpg',
                         alt: 'Komanda üzvü',
                         className: 'rounded-full w-32 h-32 mx-auto mb-4',
                       }),
@@ -11872,7 +11872,7 @@ function i3() {
                     className: 'text-center',
                     children: [
                       x.jsx('img', {
-                        src: 'aboutUsProfile.jpg',
+                        src: '/assets/photos/aboutUsProfile.jpg',
                         alt: 'Komanda üzvü',
                         className: 'rounded-full w-32 h-32 mx-auto mb-4',
                       }),
@@ -11890,7 +11890,7 @@ function i3() {
                     className: 'text-center',
                     children: [
                       x.jsx('img', {
-                        src: 'aboutUsProfile.jpg',
+                        src: '/assets/photos/aboutUsProfile.jpg',
                         alt: 'Komanda üzvü',
                         className: 'rounded-full w-32 h-32 mx-auto mb-4',
                       }),
@@ -11908,7 +11908,7 @@ function i3() {
                     className: 'text-center',
                     children: [
                       x.jsx('img', {
-                        src: 'aboutUsProfile.jpg',
+                        src: '/assets/photos/aboutUsProfile.jpg',
                         alt: 'Komanda üzvü',
                         className: 'rounded-full w-32 h-32 mx-auto mb-4',
                       }),
@@ -12155,7 +12155,7 @@ function o3() {
               x.jsx('div', {
                 className: 'lg:w-1/2 h-full overflow-hidden rounded-2xl',
                 children: x.jsx('img', {
-                  src: '/img1.jpeg',
+                  src: '/assets/photos/img1.jpeg',
                   alt: '',
                   className: 'rounded-2xl w-full h-full hoverImg',
                 }),
@@ -33386,7 +33386,7 @@ function tV() {
         x.jsx('div', {
           className: 'overflow-hidden relative h-full w-full',
           children: x.jsx('img', {
-            src: '/bg2.jpg',
+            src: '/assets/photos/bg2.jpg',
             alt: '',
             className:
               'lg:absolute top-0 w-full lg:h-[70vh] h-[30rem] object-cover rounded-2xl',
@@ -33727,7 +33727,7 @@ function mV() {
             x.jsx('div', {
               className: 'flex items-center',
               children: x.jsx('img', {
-                src: '/contactImg.jpg',
+                src: '/assets/photos/contactImg.jpg',
                 alt: 'Envelope',
                 className: 'rounded-lg',
               }),

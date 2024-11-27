@@ -56,7 +56,7 @@ export default function Hero() {
       <div className="relative rounded-2xl lg:h-[70vh]">
         <div className="overflow-hidden relative h-full w-full">
           <img
-            src="/bg2.jpg"
+            src="/assets/photos/bg2.jpg"
             alt=""
             className="lg:absolute top-0 w-full lg:h-[70vh] h-[30rem] object-cover rounded-2xl"
           />

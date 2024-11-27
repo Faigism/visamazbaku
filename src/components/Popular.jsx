@@ -118,7 +118,7 @@ export default function Popular() {
           </div>
           <div className="lg:w-1/2 h-full overflow-hidden rounded-2xl">
             <img
-              src="/img1.jpeg"
+              src="/assets/photos/img1.jpeg"
               alt=""
               className="rounded-2xl w-full h-full hoverImg"
             />

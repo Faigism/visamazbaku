@@ -49,7 +49,7 @@ const Language = () => {
   return (
     <div className="relative flex gap-4 z-[100]" ref={languageRef}>
       <img
-        src="/langGlobe.png"
+        src="/assets/photos/langGlobe.png"
         alt="globe"
         className="w-[2.2rem] h-[2.2rem] cursor-pointer"
         onClick={toggleLanguageDropdown}

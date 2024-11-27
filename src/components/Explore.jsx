@@ -115,37 +115,37 @@ export default function Explore() {
           </div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 py-16">
             <Card
-              image="/img2.jpg"
+              image="/assets/photos/img2.jpg"
               text="SC, Mindanou"
               location="Mindanou, Philippines"
               price="148"
             />
             <Card
-              image="/img3.jpg"
+              image="/assets/photos/img3.jpg"
               text="SC, Mindanou"
               location="Tokyo, Japan"
               price="140"
             />
             <Card
-              image="/img4.jpg"
+              image="/assets/photos/img4.jpg"
               text="sand Island"
               location="Java, Indonesia"
               price="148"
             />
             <Card
-              image="/img5.png"
+              image="/assets/photos/img5.png"
               text="Baslika Santo"
               location="Venice, Italy"
               price="156"
             />
             <Card
-              image="/img6.jpeg"
+              image="/assets/photos/img6.jpeg"
               text="Baslika Santo"
               location="Venice, Italy"
               price="164"
             />
             <Card
-              image="/img7.jpg"
+              image="/assets/photos/img7.jpg"
               text="Baslika Santo"
               location="Mindanou, Philippines"
               price="172"

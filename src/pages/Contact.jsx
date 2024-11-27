@@ -3,7 +3,7 @@ import ContactForm from '../components/ContactForm'
 
 const Contact = () => {
   const { t } = useTranslation()
-  const whatsappNumber = '994501234567'
+  const whatsappNumber = import.meta.env.VITE_MOBILE_PHONE
 
   const handleWhatsAppRedirect = () => {
     window.open(`https://wa.me/${whatsappNumber}`, '_blank')

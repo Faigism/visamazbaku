@@ -1,14 +1,18 @@
 import React from 'react'
 import RedirectContact from '../components/RedirectContact'
+import { useTranslation } from 'react-i18next'
 
 const Services = () => {
+  const { t } = useTranslation()
   return (
     <div className="container mx-auto py-8 px-4 md:py-12 md:px-8">
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8">
-        Xidmətlərimiz
-      </h1>
-      <div className="text-center mt-8 md:mt-12 mb-7">
-        <RedirectContact />
+      <div className="text-center mb-12">
+        <h2 className="text-primary text-3xl lg:text-4xl font-bold mb-4">
+          {t('Services')}
+        </h2>
+        <div className="text-center mb-7">
+          <RedirectContact />
+        </div>
       </div>
 
       <section className="mb-8 md:mb-12">

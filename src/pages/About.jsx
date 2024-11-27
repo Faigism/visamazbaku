@@ -6,7 +6,7 @@ export default function About() {
   return (
     <div>
       <section>
-        <div className="container mx-auto px-6 lg:px-20 bg-white bg-opacity-80 rounded-lg shadow-lg p-8 lg:p-16">
+        <div className="container mx-auto px-6 lg:px-20 bg-white bg-opacity-80 rounded-lg shadow-lg p-8">
           <div className="text-center mb-12">
             <h2 className="text-primary text-3xl lg:text-4xl font-bold mb-4">
               {t('aboutUs.aboutTitle')}
@@ -82,7 +82,7 @@ export default function About() {
                   alt="Komanda üzvü"
                   className="rounded-full w-32 h-32 mx-auto mb-4"
                 />
-                <h3 className="text-lg font-semibold">Əli Məmmədov</h3>
+                <h3 className="text-lg font-semibold">Cəbrayıl Mirzəyev</h3>
                 <p className="text-gray-600">CEO</p>
               </div>
               <div className="text-center">
@@ -91,7 +91,7 @@ export default function About() {
                   alt="Komanda üzvü"
                   className="rounded-full w-32 h-32 mx-auto mb-4"
                 />
-                <h3 className="text-lg font-semibold">Aysel Əliyeva</h3>
+                <h3 className="text-lg font-semibold">Nəcibə Mirzəyeva</h3>
                 <p className="text-gray-600">{t('aboutUs.teamMarketing')}</p>
               </div>
               <div className="text-center">
@@ -109,7 +109,7 @@ export default function About() {
                   alt="Komanda üzvü"
                   className="rounded-full w-32 h-32 mx-auto mb-4"
                 />
-                <h3 className="text-lg font-semibold">Faiq Ismayilov</h3>
+                <h3 className="text-lg font-semibold">Faiq İsmayılov</h3>
                 <p className="text-gray-600">{t('aboutUs.teamIT')}</p>
               </div>
             </div>

@@ -18,18 +18,44 @@ export default function Footer() {
             30 Great Peter St, WestMinister, London SWIP 28J, United Kingdom
           </p>
           <div className="flex items-center gap-3 pt-2">
-            <FaFacebook
-              size={20}
-              className="text-primary cursor-pointer hover:text-gray-700"
-            />
-            <FaInstagram
-              size={20}
-              className="text-primary cursor-pointer hover:text-gray-700"
-            />
-            <FaYoutube
-              size={20}
-              className="text-primary cursor-pointer hover:text-gray-700"
-            />
+            <a
+              href="https://www.facebook.com/profile.php?id=61560855894972&mibextid=ZbWKwL"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook
+                size={20}
+                className="text-primary cursor-pointer hover:text-gray-700"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/visam.az.baku/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram
+                size={20}
+                className="text-primary cursor-pointer hover:text-gray-700"
+              />
+            </a>
+            <a
+              href="https://youtube.com/@jabrayilmirzayev8359?si=DAkmQrlcgX_FPSj_"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube
+                size={20}
+                className="text-primary cursor-pointer hover:text-gray-700"
+              />
+            </a>
+          </div>
+          <div className="pt-3 space-y-2">
+            <p className="text-gray-600 font-medium hover:text-blue-800">
+              +994502247802
+            </p>
+            <p className="text-gray-600 font-medium hover:text-blue-800">
+              +994102247802
+            </p>
           </div>
         </div>
 

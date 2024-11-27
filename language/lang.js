@@ -13,6 +13,17 @@ i18n.use(initReactI18next).init({
         apply: 'Apply',
         loading: 'Loading...',
 
+        requests: {
+          errorOther: 'An error occurred.',
+          errorEmailValidation:
+            'Just enter a Gmail address (example: example@gmail.com).',
+          errorEmailValidation2: 'The email address you entered is incorrect.',
+          errorEmailLimited:
+            'You can only send requests 2 times per day with this account.',
+          successFormMessage:
+            'Your request has been sent, we will get back to you as soon as possible.',
+        },
+
         hero: {
           title: 'Discover the world and enjoy its beauty',
           desc: 'Where are you planning to travel?',
@@ -123,6 +134,17 @@ i18n.use(initReactI18next).init({
         apply: 'Müraciət et',
         loading: 'Yüklənir...',
 
+        requests: {
+          errorOther: 'Xəta baş verdi.',
+          errorEmailValidation:
+            'Yalnız Gmail ünvanı daxil edin (nümunə: example@gmail.com).',
+          errorEmailValidation2: 'Daxil etdiyiniz email ünvanı düzgün deyil.',
+          errorEmailLimited:
+            'Bu hesabla gün ərzində yalnız 2 dəfə sorğu göndərə bilərsiniz.',
+          successFormMessage:
+            'Sorğunuz göndərildi, ən qısa zamanda sizə geri dönüş olacaq.',
+        },
+
         hero: {
           title: 'Dünyanı kəşf edin və onun gözəlliyindən həzz alın',
           desc: 'Hara səyahət planlayırsınız',
@@ -231,6 +253,18 @@ i18n.use(initReactI18next).init({
 
         apply: 'Обратиться',
         loading: 'Загрузка...',
+
+        requests: {
+          errorOther: 'произошла ошибка',
+          errorEmailValidation:
+            'Просто введите адрес Gmail (например: example@gmail.com).',
+          errorEmailValidation2:
+            'Введенный вами адрес электронной почты неверен.',
+          errorEmailLimited:
+            'С помощью этой учетной записи вы можете отправлять запросы только 2 раза в день.',
+          successFormMessage:
+            'Ваш запрос отправлен, мы свяжемся с вами как можно скорее.',
+        },
 
         hero: {
           title: 'Откройте для себя мир и наслаждайтесь его красотой',

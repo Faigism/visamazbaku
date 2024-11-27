@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 import emailjs from '@emailjs/browser'
 import db from '../server/firebase'
 import {
@@ -12,6 +13,11 @@ import { useTranslation } from 'react-i18next'
 
 export default function ContactForm() {
   const { t } = useTranslation()
+  const [formErrors, setFormErrors] = useState({
+    name: '',
+    email: '',
+    message: '',
+  })
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,6 +36,13 @@ export default function ContactForm() {
       return
     }
 
+    if (name === 'email') {
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        message: '',
+      }))
+    }
+
     if (name === 'message') {
       if (trimmedValue.length <= 200) {
         setFormData((prevData) => ({ ...prevData, [name]: trimmedValue }))
@@ -42,7 +55,8 @@ export default function ContactForm() {
   }
 
   async function checkEmailExists(email) {
-    const apiKey = 'e6f6577e1f43406a8e0dd3350f77739f'
+    const apiKey = import.meta.env.VITE_EMAIL_VALIDATION_API_KEY
+
     const response = await fetch(
       `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${email}`
     )
@@ -54,48 +68,80 @@ export default function ContactForm() {
     e.preventDefault()
     if (isSubmitting) return
 
+    setFormErrors({
+      name: '',
+      email: '',
+      message: '',
+    })
+
+    let errors = {}
+
+    if (!formData.name) {
+      errors.name = 'Adınızı daxil edin.'
+    }
     if (!formData.email.endsWith('@gmail.com')) {
-      alert(
-        'Zəhmət olmasa yalnız Gmail ünvanı daxil edin (nümunə: example@gmail.com)'
-      )
+      errors.email = t('requests.errorEmailValidation')
+    }
+    if (!formData.message) {
+      errors.message = 'Mesajınızı daxil edin.'
+    }
+
+    // Yalnız emailin doğruluğunu yoxlamağa davam edirik, əgər limit aşılmayıbsa
+    let emailValid = true
+    const userRef = doc(db, 'messages', formData.email)
+    const userDoc = await getDoc(userRef)
+
+    if (userDoc.exists()) {
+      const userData = userDoc.data()
+      const lastMessageDate = userData.lastMessageDate
+      let messageCount = userData.messageCount || 0
+
+      // Əgər eyni gündə artıq 2 sorğu göndərilibsə, email yoxlanmasına ehtiyac yoxdur
+      if (
+        lastMessageDate === new Date().toISOString().slice(0, 10) &&
+        messageCount >= 2
+      ) {
+        errors.message = t('requests.errorEmailLimited')
+        setFormErrors(errors)
+        setIsSubmitting(false)
+        return
+      }
+
+      // Əgər son göndərilən tarix bu gündən fərqlidirsə, sayacı sıfırlayırıq
+      if (lastMessageDate !== new Date().toISOString().slice(0, 10)) {
+        messageCount = 0
+      }
+
+      // Əgər emailin artıq düzgünlüyü yoxlanılıbsa və limit aşılmayıbsa, `checkEmailExists` funksiyasını çağırmağa ehtiyac yoxdur
+      emailValid = true
+    }
+
+    // Eyni email ilə limitə çatmamışsa, emaili yoxlayaq
+    if (emailValid && !userDoc.exists()) {
+      emailValid = await checkEmailExists(formData.email)
+    }
+
+    if (!emailValid) {
+      errors.email = t('requests.errorEmailValidation2')
+    }
+
+    // Əgər səhv varsa, onları göstəririk və submit etməyə icazə vermirik
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors)
+      setIsSubmitting(false)
       return
     }
 
     setIsSubmitting(true)
 
     try {
-      const emailValid = await checkEmailExists(formData.email)
-      if (!emailValid) {
-        alert('Daxil etdiyiniz email ünvanı düzgün deyil.')
-        setIsSubmitting(false)
-        return
-      }
-
-      const userRef = doc(db, 'messages', formData.email)
-      const userDoc = await getDoc(userRef)
-
       const today = new Date().toISOString().slice(0, 10)
       let messageCount = 0
 
-      if (userDoc.exists()) {
-        const userData = userDoc.data()
-        const lastMessageDate = userData.lastMessageDate
-        messageCount = userData.messageCount || 0
-
-        if (lastMessageDate === today && messageCount >= 2) {
-          alert('Siz yalnız gün ərzində 2 dəfə mesaj göndərə bilərsiniz.')
-          setIsSubmitting(false)
-          return
-        }
-
-        if (lastMessageDate !== today) {
-          messageCount = 0
-        }
-      }
-
-      const serviceId = 'service_dg79q4m'
-      const templateId = 'template_utw90yp'
-      const publicKey = 'Dr77EQg5SdQTGJ1cO'
+      // Emaili göndəririk
+      const serviceId = import.meta.env.VITE_EMAIL_SERVICE_ID
+      const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID
+      const publicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY
 
       const templateParams = {
         name: formData.name,
@@ -105,11 +151,15 @@ export default function ContactForm() {
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
       console.log('Email sent successfully!')
+      toast.success(t('requests.successFormMessage'))
+
+      // Yeni məlumatları Firebase-ə yazırıq
       await setDoc(userRef, {
         messageCount: messageCount + 1,
         lastMessageDate: today,
       })
 
+      setRemainingChars(200)
       setFormData({
         name: '',
         email: '',
@@ -117,7 +167,7 @@ export default function ContactForm() {
         message: '',
       })
     } catch (error) {
-      console.log('Error sending email:', error)
+      toast.error(t('requests.errorOther'))
     } finally {
       setIsSubmitting(false)
     }
@@ -146,11 +196,16 @@ export default function ContactForm() {
                 type="text"
                 name="name"
                 id="name"
-                className="w-full mt-1 p-3 border border-gray-300 rounded-md"
+                className={`w-full mt-1 p-3 border ${
+                  formErrors.name ? 'border-red-500' : 'border-gray-300'
+                } rounded-md`}
                 value={formData.name}
                 onChange={handleChange}
                 required
               />
+              {formErrors.name && (
+                <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>
+              )}
             </div>
             <div>
               <label
@@ -163,11 +218,16 @@ export default function ContactForm() {
                 type="email"
                 name="email"
                 id="email"
-                className="w-full mt-1 p-3 border border-gray-300 rounded-md"
+                className={`w-full mt-1 p-3 border ${
+                  formErrors.email ? 'border-red-500' : 'border-gray-300'
+                } rounded-md`}
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
+              {formErrors.email && (
+                <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
+              )}
             </div>
             <div>
               <label
@@ -203,11 +263,18 @@ export default function ContactForm() {
                 name="message"
                 id="message"
                 rows="4"
-                className="w-full mt-1 p-3 border border-gray-300 rounded-md"
+                className={`w-full mt-1 p-3 border ${
+                  formErrors.message ? 'border-red-500' : 'border-gray-300'
+                } rounded-md`}
                 value={formData.message}
                 onChange={handleChange}
                 required
               />
+              {formErrors.message && (
+                <p className="text-red-500 text-sm mt-1">
+                  {formErrors.message}
+                </p>
+              )}
               <p className="text-gray-500 text-sm mt-1">
                 {t('contactForm.symbols')}: {remainingChars}
               </p>

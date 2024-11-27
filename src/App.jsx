@@ -1,4 +1,6 @@
 import Navbar from './components/Navbar'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import About from './pages/About'
 import Home from './components/Home'
@@ -17,54 +19,55 @@ import { useTranslation } from 'react-i18next'
 import ComingSoon from './components/ComingSoon'
 
 function App() {
-  // const [blogs, setBlogs] = useState([])
-  // const { i18n } = useTranslation()
-  // const [loading, setLoading] = useState(true)
+  const [blogs, setBlogs] = useState([])
+  const { i18n } = useTranslation()
+  const [loading, setLoading] = useState(true)
 
-  // useEffect(() => {
-  //   const fetchBlogs = () => {
-  //     const unsubscribe = onSnapshot(
-  //       collection(db, 'blogs'),
-  //       (querySnapshot) => {
-  //         const blogData = querySnapshot.docs.map((doc) => ({
-  //           id: doc.id,
-  //           ...doc.data(),
-  //         }))
-  //         setBlogs(blogData)
-  //         setLoading(false)
-  //       }
-  //     )
+  useEffect(() => {
+    const fetchBlogs = () => {
+      const unsubscribe = onSnapshot(
+        collection(db, 'blogs'),
+        (querySnapshot) => {
+          const blogData = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }))
+          setBlogs(blogData)
+          setLoading(false)
+        }
+      )
 
-  //     return () => unsubscribe()
-  //   }
+      return () => unsubscribe()
+    }
 
-  //   fetchBlogs()
-  // }, [])
+    fetchBlogs()
+  }, [])
 
-  // useEffect(() => {
-  //   const handleLanguageChange = () => {
-  //     setLoading(false)
-  //   }
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLoading(false)
+    }
 
-  //   i18n.on('languageChanged', handleLanguageChange)
+    i18n.on('languageChanged', handleLanguageChange)
 
-  //   return () => {
-  //     i18n.off('languageChanged', handleLanguageChange)
-  //   }
-  // }, [i18n])
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange)
+    }
+  }, [i18n])
 
-  // const addBlog = (newBlog) => {
-  //   setBlogs([newBlog, ...blogs])
-  // }
+  const addBlog = (newBlog) => {
+    setBlogs([newBlog, ...blogs])
+  }
 
-  // if (loading) {
-  //   return <Loading />
-  // }
+  if (loading) {
+    return <Loading />
+  }
 
   return (
     <Router>
-      <ComingSoon />
-      {/* <ScrollToTop />
+      {/* <ComingSoon /> */}
+      <ToastContainer />
+      <ScrollToTop />
       <Navbar />
       <Routes basename={window.location.pathname || ''}>
         <Route path="/" element={<Home />} />
@@ -75,7 +78,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="*" element={<Error />} />
       </Routes>
-      <Footer /> */}
+      <Footer />
     </Router>
   )
 }

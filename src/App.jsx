@@ -65,8 +65,8 @@ function App() {
 
   return (
     <Router>
-      {/* <ComingSoon /> */}
-      <ToastContainer />
+      <ComingSoon />
+      {/* <ToastContainer />
       <ScrollToTop />
       <Navbar />
       <Routes basename={window.location.pathname || ''}>
@@ -78,7 +78,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="*" element={<Error />} />
       </Routes>
-      <Footer />
+      <Footer /> */}
     </Router>
   )
 }

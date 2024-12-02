@@ -2,12 +2,14 @@ import Adventure from './Adventure'
 import Popular from './Popular'
 import Explore from './Explore'
 import Hero from './Hero'
+import PopularCountry from './PopularCountry'
 
 const Home = () => {
   return (
     <>
       <Hero />
-      <Popular />
+      <PopularCountry />
+      {/* <Popular /> */}
       {/* <Explore /> */}
       <Adventure />
     </>

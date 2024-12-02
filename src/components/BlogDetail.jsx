@@ -4,7 +4,7 @@ import { doc, getDoc } from 'firebase/firestore'
 import db from '../server/firebase'
 import HandleWp from './RedirectContact'
 
-const BlogDetail = () => {
+const BlogDetail = ({ blogs, setBlogs }) => {
   const { id } = useParams()
   const [blog, setBlog] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -51,7 +51,7 @@ const BlogDetail = () => {
   }
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-8">
+    <div className="container mx-auto py-12 px-4 md:px-8 mt-28">
       <h2 className="text-2xl font-bold mb-4 text-cyan-800">{blog.title}</h2>
       <p className="text-gray-400 mb-4">
         {blog.source} • {blog.date}
@@ -65,9 +65,10 @@ const BlogDetail = () => {
         />
       </div>
 
-      <div className="text-gray-700 text-justify text-base md:text-lg px-4 leading-relaxed mb-4">
+      <div className="text-gray-700 text-justify text-base md:text-lg px-4 leading-relaxed mb-4 max-w-2xl mx-auto whitespace-pre-line">
         {blog.excerpt}
       </div>
+
       <div className="text-center pt-12">
         <HandleWp />
       </div>

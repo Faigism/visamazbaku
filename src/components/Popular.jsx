@@ -46,22 +46,22 @@ export default function Popular() {
           </div>
           <div className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 my-12 relative z-10">
             <Card
-              image="/popularBerlin.jpeg"
+              image="/assets/photos/popularBerlin.jpeg"
               location="Berlin, Germany"
               text="The Brandenburg Gate"
             />
             <Card
-              image="/disney.jpeg"
+              image="/assets/photos/disney.jpeg"
               location="Tokyo, Japan"
               text="DisneyLand Tokyo"
             />
             <Card
-              image="/java.jpg"
+              image="/assets/photos/java.jpg"
               location="Java, Indonesia"
               text="Tousand Island"
             />
             <Card
-              image="/venice.jpeg"
+              image="/assets/photos/venice.jpeg"
               location="Venice, Italy"
               text="Baslika Santo"
             />
@@ -111,7 +111,7 @@ export default function Popular() {
               </p>
             </div>
             <Link to="/blog">
-              <button className="bg-primary text-white px-6 py-3 transition-bg hover:bg-white hover:text-primary rounded-xl shadow my-8">
+              <button className="bg-[#61cad0] text-white px-6 py-3 transition-bg hover:bg-[#439fa4] hover:text-white rounded-xl shadow my-8">
                 {t('popular.travel_make_btn')}
               </button>
             </Link>
@@ -119,7 +119,7 @@ export default function Popular() {
           <div className="lg:w-1/2 h-full overflow-hidden rounded-2xl">
             <img
               src="/assets/photos/img1.jpeg"
-              alt=""
+              alt="popularImg"
               className="rounded-2xl w-full h-full hoverImg"
             />
           </div>

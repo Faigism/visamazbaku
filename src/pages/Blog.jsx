@@ -18,8 +18,8 @@ const Blog = ({ blogs }) => {
   }
 
   return (
-    <div>
-      {/* <BlogForm /> */}
+    <div className="mt-28">
+      <BlogForm />
       <BlogList blogs={currentBlogs} />
       <Pagination
         currentPage={currentPage}

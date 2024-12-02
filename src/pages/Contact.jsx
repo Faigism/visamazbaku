@@ -10,9 +10,9 @@ const Contact = () => {
   }
 
   return (
-    <div className="mx-auto px-6 py-8">
+    <div className="mx-auto px-6 py-8 mt-28">
       <div className="text-center mb-12">
-        <h2 className="text-primary text-3xl lg:text-4xl font-bold mb-4">
+        <h2 className="text-[#61cad0] text-3xl lg:text-4xl font-bold mb-4">
           {t('aboutUs.aboutH2')}
         </h2>
       </div>

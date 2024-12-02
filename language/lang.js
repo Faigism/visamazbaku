@@ -6,7 +6,7 @@ i18n.use(initReactI18next).init({
     en: {
       translation: {
         Services: 'Services',
-        Blog: 'Blog',
+        Blog: 'Blogs',
         ContactUs: 'Contact Us',
         AboutUs: 'About Us',
 
@@ -25,9 +25,9 @@ i18n.use(initReactI18next).init({
         },
 
         hero: {
-          title: 'Discover the world and enjoy its beauty',
+          title: 'We made the visa available for you.',
           desc: 'Where are you planning to travel?',
-          search: 'Search...',
+          search: 'Search by country..',
         },
 
         popular: {
@@ -47,6 +47,19 @@ i18n.use(initReactI18next).init({
           travel_make3_title:
             'There are countless reasons to love travel, and one of the best is the food—glorious food.',
           travel_make_btn: 'Start your explore',
+        },
+
+        popularCountry: {
+          title1: 'About visas of the most frequently asked countries',
+          title2:
+            'Our center receives more questions about visas from these countries.',
+          germany: 'Germany',
+          italy: 'Italy',
+          thailand: 'Thailand',
+          austria: 'Austria',
+          france: 'France',
+          usa: 'USA',
+          canada: 'Canada',
         },
 
         adventure: {
@@ -127,7 +140,7 @@ i18n.use(initReactI18next).init({
     az: {
       translation: {
         Services: 'Xidmətlərimiz',
-        Blog: 'Bloq',
+        Blog: 'Bloqlar',
         ContactUs: 'Əlaqə',
         AboutUs: 'Haqqımızda',
 
@@ -146,10 +159,11 @@ i18n.use(initReactI18next).init({
         },
 
         hero: {
-          title: 'Dünyanı kəşf edin və onun gözəlliyindən həzz alın',
+          title: 'Vizanı sizin üçün əlçatan etdik',
           desc: 'Hara səyahət planlayırsınız',
-          search: 'Axtarış...',
+          search: 'Ölkəyə görə axtarış..',
         },
+
         popular: {
           title1: 'Məhşur Yerlər',
           title2: 'Gəlin yer üzündəki bu cənnətdən zövq alaq',
@@ -167,6 +181,19 @@ i18n.use(initReactI18next).init({
           travel_make3_title:
             'Səyahəti sevmək üçün saysız-hesabsız səbəb var, və onlardan ən gözəli yeməklərdir – möhtəşəm yeməklər!',
           travel_make_btn: 'Kəşf etməyə başla',
+        },
+
+        popularCountry: {
+          title1: 'Ən çox soruşulan ölkələrin vizaları haqqında',
+          title2:
+            'Mərkəzimizə daha çox bu ölkələrin vizaları ilə bağlı sual daxil olur.',
+          germany: 'Almaniya',
+          italy: 'Italiya',
+          thailand: 'Tayland',
+          austria: 'Avstria',
+          france: 'Fransa',
+          usa: 'ABŞ',
+          canada: 'Kanada',
         },
 
         adventure: {
@@ -247,7 +274,7 @@ i18n.use(initReactI18next).init({
     ru: {
       translation: {
         Services: 'Сервисы',
-        Blog: 'Блог',
+        Blog: 'Блоги',
         ContactUs: 'Контакты',
         AboutUs: 'О нас',
 
@@ -267,10 +294,11 @@ i18n.use(initReactI18next).init({
         },
 
         hero: {
-          title: 'Откройте для себя мир и наслаждайтесь его красотой',
+          title: 'Мы сделали визу доступной для вас',
           desc: 'Куда вы планируете поехать?',
-          search: 'Поиск...',
+          search: 'Поиск по стране...',
         },
+
         popular: {
           title1: 'Популярное Место',
           title2: 'Давайте насладимся этим раем на земле.',
@@ -289,6 +317,19 @@ i18n.use(initReactI18next).init({
           travel_make3_title:
             'Существует бесконечное множество причин любить путешествия, и одна из них — это еда, великолепная еда!',
           travel_make_btn: 'Начни своё исследование.',
+        },
+
+        popularCountry: {
+          title1: 'О визах самых часто задаваемых стран',
+          title2:
+            'В наш центр в основном поступают вопросы по визам в эти страны.',
+          germany: 'Германия',
+          italy: 'Италия',
+          thailand: 'Таиланд',
+          austria: 'Австрия',
+          france: 'Франция',
+          usa: 'США',
+          canada: 'Канада',
         },
 
         adventure: {

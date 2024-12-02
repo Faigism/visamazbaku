@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next'
 const Services = () => {
   const { t } = useTranslation()
   return (
-    <div className="container mx-auto py-8 px-4 md:py-12 md:px-8">
+    <div className="container mx-auto py-8 px-4 md:py-12 md:px-8 mt-28">
       <div className="text-center mb-12">
-        <h2 className="text-primary text-3xl lg:text-4xl font-bold mb-4">
+        <h2 className="text-[#61cad0] text-3xl lg:text-4xl font-bold mb-4">
           {t('Services')}
         </h2>
         <div className="text-center mb-7">

@@ -3,6 +3,7 @@ import { collection, getDocs } from 'firebase/firestore'
 import db from '../server/firebase'
 import _ from 'lodash'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 export default function Hero() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -52,13 +53,13 @@ export default function Hero() {
     : filteredBlogs.slice(0, 3)
 
   return (
-    <div className="container mx-auto px-6 pt-12">
-      <div className="relative rounded-2xl lg:h-[70vh]">
+    <div className="container mx-auto">
+      <div className="relative rounded-bl-2xl rounded-br-2xl lg:h-[100vh]">
         <div className="overflow-hidden relative h-full w-full">
           <img
-            src="/assets/photos/bg2.jpg"
-            alt=""
-            className="lg:absolute top-0 w-full lg:h-[70vh] h-[30rem] object-cover rounded-2xl"
+            src="/assets/photos/heroBackground.png"
+            alt="bg2"
+            className="lg:absolute top-0 w-full lg:h-[100vh] h-[30rem] object-cover rounded-bl-2xl rounded-br-2xl"
           />
         </div>
         <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center h-full ">
@@ -79,8 +80,8 @@ export default function Hero() {
             {filteredBlogs.length > 0 && (
               <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-lg p-4 max-h-60 overflow-y-auto custom-scrollbar">
                 {displayedBlogs.map((blog) => (
-                  <a
-                    href={`/blog/${blog.id}`}
+                  <Link
+                    to={`/blog/${blog.id}`}
                     key={blog.id}
                     className="block p-3 border-b border-gray-200 hover:bg-gray-100 transition"
                   >
@@ -94,7 +95,7 @@ export default function Hero() {
                         ? blog.description.slice(0, 50) + '...'
                         : blog.description}
                     </p>
-                  </a>
+                  </Link>
                 ))}
                 {filteredBlogs.length > 3 && !showAllResults && (
                   <button

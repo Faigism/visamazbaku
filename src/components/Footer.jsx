@@ -8,15 +8,17 @@ export default function Footer() {
     <footer className="bg-white border-t border-solid mt-10">
       <div className="container mx-auto grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 px-4 py-8">
         <div>
-          <Link
-            to="/"
-            className="text-3xl font-bold bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 text-transparent bg-clip-text"
-          >
-            visamazbaku
-          </Link>
-          <p className="text-gray-600 text-sm lg:text-base py-2">
+          <div className="text-center font-extrabold text-[#4577b2]">
+            <div
+              className="text-2xl italic"
+              style={{ fontFamily: 'Trebuchet MS' }}
+            >
+              VİSAM AZ BAKU
+            </div>
+          </div>
+          {/* <p className="text-gray-600 text-sm lg:text-base py-2">
             30 Great Peter St, WestMinister, London SWIP 28J, United Kingdom
-          </p>
+          </p> */}
           <div className="flex items-center gap-3 pt-2">
             <a
               href="https://www.facebook.com/profile.php?id=61560855894972&mibextid=ZbWKwL"

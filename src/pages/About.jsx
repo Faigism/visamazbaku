@@ -5,10 +5,10 @@ export default function About() {
 
   return (
     <div>
-      <section>
+      <section className="mt-28">
         <div className="container mx-auto px-6 lg:px-20 bg-white bg-opacity-80 rounded-lg shadow-lg p-8">
           <div className="text-center mb-12">
-            <h2 className="text-primary text-3xl lg:text-4xl font-bold mb-4">
+            <h2 className="text-[#61cad0] text-3xl lg:text-4xl font-bold mb-4">
               {t('aboutUs.aboutTitle')}
             </h2>
             <p className="text-gray-600 text-lg lg:text-xl max-w-2xl mx-auto">
@@ -44,7 +44,7 @@ export default function About() {
         </div>
         <section className="py-16">
           <div className="container mx-auto px-6 lg:px-20">
-            <h2 className="text-primary text-3xl lg:text-4xl font-bold mb-8 text-center">
+            <h2 className="text-[#61cad0] text-3xl lg:text-4xl font-bold mb-8 text-center">
               {t('aboutUs.aboutReviews')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -65,52 +65,6 @@ export default function About() {
                   {t('aboutUs.aboutReviews3')}
                 </p>
                 <h4 className="font-semibold text-lg">Orxan Rəsulov</h4>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-6 lg:px-20">
-            <h2 className="text-primary text-3xl lg:text-4xl font-bold mb-8 text-center">
-              {t('aboutUs.aboutOurTeam')}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="text-center">
-                <img
-                  src="/assets/photos/aboutUsProfile.jpg"
-                  alt="Komanda üzvü"
-                  className="rounded-full w-32 h-32 mx-auto mb-4"
-                />
-                <h3 className="text-lg font-semibold">Cəbrayıl Mirzəyev</h3>
-                <p className="text-gray-600">CEO</p>
-              </div>
-              <div className="text-center">
-                <img
-                  src="/assets/photos/aboutUsProfile.jpg"
-                  alt="Komanda üzvü"
-                  className="rounded-full w-32 h-32 mx-auto mb-4"
-                />
-                <h3 className="text-lg font-semibold">Nəcibə Mirzəyeva</h3>
-                <p className="text-gray-600">{t('aboutUs.teamMarketing')}</p>
-              </div>
-              <div className="text-center">
-                <img
-                  src="/assets/photos/aboutUsProfile.jpg"
-                  alt="Komanda üzvü"
-                  className="rounded-full w-32 h-32 mx-auto mb-4"
-                />
-                <h3 className="text-lg font-semibold">Rəşad Quliyev</h3>
-                <p className="text-gray-600">{t('aboutUs.teamCustomer')}</p>
-              </div>
-              <div className="text-center">
-                <img
-                  src="/assets/photos/aboutUsProfile.jpg"
-                  alt="Komanda üzvü"
-                  className="rounded-full w-32 h-32 mx-auto mb-4"
-                />
-                <h3 className="text-lg font-semibold">Faiq İsmayılov</h3>
-                <p className="text-gray-600">{t('aboutUs.teamIT')}</p>
               </div>
             </div>
           </div>

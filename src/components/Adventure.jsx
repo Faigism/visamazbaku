@@ -16,7 +16,7 @@ export default function Adventure() {
         <div className="overflow-hidden rounded-2xl">
           <div className="w-full lg:h-[40rem] h-100 rounded-2xl">
             <video loop muted autoPlay className="pointer-events-none">
-              <source src="/video.mp4" type="video/mp4" />
+              <source src="/assets/photos/video.mp4" type="video/mp4" />
             </video>
           </div>
         </div>

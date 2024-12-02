@@ -33,42 +33,45 @@ export default function Navbar() {
   }, [i18n])
 
   return (
-    <nav className="w-full h-24 flex flex-col justify-center items-center sticky top-0 z-50 bg-white">
-      <div className="container mx-auto lg:px-3 w-full">
+    <nav className="w-full h-24 flex flex-col justify-center items-center absolute top-0 z-50">
+      <div className="container mx-auto lg:px-3 w-full h-24 bg-slate-500">
         <div className="lg:w-full w-11/12 mx-auto h-full flex justify-between items-center">
           <div className="flex flex-col gap-y-4">
             <div className="flex items-center gap-x-2">
-              <Link
-                to="/"
-                className="text-3xl font-bold bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 text-transparent bg-clip-text"
-                onClick={closeDropdown}
-              >
-                Visamazbaku
+              <Link to="/" onClick={closeDropdown}>
+                <div className="text-center font-extrabold text-white">
+                  <div
+                    className="text-2xl italic"
+                    style={{ fontFamily: 'Trebuchet MS' }}
+                  >
+                    VİSAM AZ BAKU
+                  </div>
+                </div>
               </Link>
             </div>
           </div>
           <ul className="flex items-center xl:gap-12 gap-x-4 max-lg:hidden">
             <Link
               to="/services"
-              className="leading-normal no-underline text-light text-lg hover:text-black"
+              className="leading-normal no-underline text-white text-lg hover:text-black"
             >
               {t('Services')}
             </Link>
             <Link
               to="/blog"
-              className="leading-normal no-underline text-light text-lg hover:text-black"
+              className="leading-normal no-underline text-white text-lg hover:text-black"
             >
               {t('Blog')}
             </Link>
             <Link
               to="contact-us"
-              className="leading-normal no-underline text-light text-lg hover:text-black"
+              className="leading-normal no-underline text-white text-lg hover:text-black"
             >
               {t('ContactUs')}
             </Link>
             <Link
               to="/about"
-              className="leading-normal no-underline text-light text-lg hover:text-black"
+              className="leading-normal no-underline text-white text-lg hover:text-black"
             >
               {t('AboutUs')}
             </Link>

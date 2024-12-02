@@ -22,11 +22,10 @@ const Language = () => {
   }
 
   useEffect(() => {
-    // İlk renderdə localStorage-dən dili oxuyuruq
     const storedLanguage = localStorage.getItem('i18nextLng') || 'az'
     i18n.changeLanguage(storedLanguage).then(() => {
       setSelectedLanguage(storedLanguage)
-      setIsLoaded(true) // Düzgün dil yükləndikdən sonra göstər
+      setIsLoaded(true)
     })
   }, [i18n])
 
@@ -51,7 +50,7 @@ const Language = () => {
       <img
         src="/assets/photos/langGlobe.png"
         alt="globe"
-        className="w-[2.2rem] h-[2.2rem] cursor-pointer"
+        className="w-[2rem] h-[2rem] cursor-pointer"
         onClick={toggleLanguageDropdown}
       />
       {languageDropdown && (

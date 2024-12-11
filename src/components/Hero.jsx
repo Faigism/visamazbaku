@@ -7,7 +7,10 @@ import { Link } from 'react-router-dom'
 
 export default function Hero() {
   const [searchTerm, setSearchTerm] = useState('')
-  const [blogs, setBlogs] = useState([])
+  const [blogs, setBlogs] = useState({
+    countryBlogs: [],
+    visaBlogs: [],
+  })
   const [filteredBlogs, setFilteredBlogs] = useState([])
   const [showAllResults, setShowAllResults] = useState(false)
 
@@ -16,12 +19,27 @@ export default function Hero() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'blogs'))
-        const blogsData = querySnapshot.docs.map((doc) => ({
+        const countrySnapshot = await getDocs(
+          collection(db, 'blogs', 'countryBlogs', 'entries')
+        )
+        const visaSnapshot = await getDocs(
+          collection(db, 'blogs', 'visaBlogs', 'entries')
+        )
+
+        const countryData = countrySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }))
-        setBlogs(blogsData)
+        const visaData = visaSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+
+        setBlogs({
+          countryBlogs: countryData,
+          visaBlogs: visaData,
+        })
+        console.log(blogs)
       } catch (error) {
         console.error('Error fetching blogs:', error)
       }
@@ -33,10 +51,13 @@ export default function Hero() {
   const debouncedSearch = useCallback(
     _.debounce((term) => {
       if (term) {
-        const results = blogs.filter((blog) =>
+        const countryResults = blogs.countryBlogs.filter((blog) =>
           blog.title.toLowerCase().includes(term.toLowerCase())
         )
-        setFilteredBlogs(results)
+        const visaResults = blogs.visaBlogs.filter((blog) =>
+          blog.title.toLowerCase().includes(term.toLowerCase())
+        )
+        setFilteredBlogs([...countryResults, ...visaResults])
       } else {
         setFilteredBlogs([])
       }
@@ -78,7 +99,7 @@ export default function Hero() {
               className="w-full p-3 rounded-lg text-black outline-none"
             />
             {filteredBlogs.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-lg p-4 max-h-60 overflow-y-auto custom-scrollbar">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-lg p-4 max-h-60 overflow-y-auto custom-scrollbar z-50">
                 {displayedBlogs.map((blog) => (
                   <Link
                     to={`/blog/${blog.id}`}

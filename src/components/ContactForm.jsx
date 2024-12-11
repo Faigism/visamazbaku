@@ -190,7 +190,7 @@ export default function ContactForm() {
           </div>
         </div>
 
-        <div className="lg:w-1/2 bg-white p-8 rounded-lg shadow-lg">
+        {/* <div className="lg:w-1/2 bg-white p-8 rounded-lg shadow-lg">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label className="block text-gray-700 font-medium" htmlFor="name">
@@ -294,7 +294,7 @@ export default function ContactForm() {
               {isSubmitting ? t('loading') : t('contactForm.formBtn')}
             </button>
           </form>
-        </div>
+        </div> */}
       </div>
     </section>
   )

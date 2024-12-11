@@ -1,8 +1,8 @@
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import BlogItem from './BlogItem'
-import { useState } from 'react'
+import BlogItemAdmin from './BlogItemAdmin'
 
-const BlogList = ({ blogs }) => {
+const BlogListAdmin = ({ blogs, onDelete, onEdit }) => {
   const { countryBlogs, visaBlogs } = blogs
   const { t } = useTranslation()
 
@@ -27,19 +27,24 @@ const BlogList = ({ blogs }) => {
 
       {/* Countries Bölməsi */}
       <div className="mb-8">
-        <h3 className="text-2xl lg:text-3xl font-semibold text-[#1a6469] mb-4 italic">
+        <h3 className="text-2xl lg:text-3xl font-semibold text-blue-600 mb-4">
           Maraqlı səyahətlər
         </h3>
         <div className="grid md:grid-cols-3 gap-6">
           {visibleCountryBlogs.map((country) => (
-            <BlogItem key={country.id} blog={country} />
+            <BlogItemAdmin
+              key={country.id}
+              blog={country}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
           ))}
         </div>
         {countryBlogs.length > 3 && (
           <div className="text-center mt-4">
             <button
               onClick={() => setShowAllCountryBlogs(!showAllCountryBlogs)}
-              className="px-4 py-2 bg-[#61cad0] text-white rounded-md hover:bg-[#439fa4]"
+              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
             >
               {showAllCountryBlogs ? 'Daha Az Göstər' : 'Daha Çox Göstər'}
             </button>
@@ -49,19 +54,24 @@ const BlogList = ({ blogs }) => {
 
       {/* Visa Blogs Bölməsi */}
       <div>
-        <h3 className="text-2xl lg:text-3xl font-semibold text-[#1a6469] mb-4 italic">
+        <h3 className="text-2xl lg:text-3xl font-semibold text-green-600 mb-4">
           Vizalar haqqında
         </h3>
         <div className="grid md:grid-cols-3 gap-6">
-          {visibleVisaBlogs.map((blog) => (
-            <BlogItem key={blog.id} blog={blog} />
+          {visibleVisaBlogs.map((visa) => (
+            <BlogItemAdmin
+              key={visa.id}
+              blog={visa}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
           ))}
         </div>
         {visaBlogs.length > 3 && (
           <div className="text-center mt-4">
             <button
               onClick={() => setShowAllVisaBlogs(!showAllVisaBlogs)}
-              className="px-4 py-2 bg-[#61cad0] text-white rounded-md hover:bg-[#439fa4]"
+              className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
             >
               {showAllVisaBlogs ? 'Daha Az Göstər' : 'Daha Çox Göstər'}
             </button>
@@ -72,4 +82,4 @@ const BlogList = ({ blogs }) => {
   )
 }
 
-export default BlogList
+export default BlogListAdmin

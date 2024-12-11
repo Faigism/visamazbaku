@@ -1,16 +1,26 @@
-import { useState } from 'react'
-import { addCountryBlog, addVisaBlog } from '../server/firebaseFunctions'
-import { uploadImageToFirebase } from './UploadImageToFirebase'
+import React, { useState, useEffect } from 'react'
+import { uploadImageToFirebase } from '../UploadImageToFirebase'
 
-const BlogForm = () => {
-  const [title, setTitle] = useState('')
-  const [summary, setSummary] = useState('')
-  const [blocks, setBlocks] = useState([])
-  const [image, setImage] = useState('')
-  const [type, setType] = useState('')
-  const [date, setDate] = useState('')
-  const [countryCode, setCountryCode] = useState('')
+const EditBlogForm = ({ blog, onUpdate, onCancel }) => {
+  // Başlanğıc dəyərləri ilə form məlumatlarını set et
+  const [type, setType] = useState(blog?.type || '')
+  const [title, setTitle] = useState(blog?.title || '')
+  const [image, setImage] = useState(blog?.image || '')
+  const [summary, setSummary] = useState(blog?.summary || '')
+  const [date, setDate] = useState(blog?.date || '')
+  const [blocks, setBlocks] = useState(blog?.blocks || [])
   const [isUploading, setIsUploading] = useState(false)
+
+  useEffect(() => {
+    if (blog) {
+      setType(blog.type || '')
+      setTitle(blog.title || '')
+      setImage(blog.image || '')
+      setSummary(blog.summary || '')
+      setDate(blog.date || '')
+      setBlocks(blog.blocks || [])
+    }
+  }, [blog])
 
   const handleImageUpload = async (event) => {
     const file = event.target.files[0]
@@ -26,71 +36,55 @@ const BlogForm = () => {
     }
   }
 
-  // Blok əlavə etmək funksiyası
   const addBlock = (type, content) => {
     if (!content.trim()) return
+
     const newBlock =
       type === 'image'
         ? { type, url: content } // Şəkil üçün `url`
-        : { type, text: content } // Mətn üçün `text`
+        : { type, content } // Mətn üçün `content`
 
     setBlocks([...blocks, newBlock])
   }
 
-  // Blog əlavə etmək funksiyası
-  const handleAddBlog = async (e) => {
+  const editBlock = (index, newContent) => {
+    setBlocks(
+      blocks.map((block, i) =>
+        i === index ? { ...block, content: newContent } : block
+      )
+    )
+  }
+
+  const handleSubmit = (e) => {
     e.preventDefault()
 
-    if (!type) {
-      alert('Blog növünü seçin!')
+    const confirmation = window.confirm(
+      'Düzəliş etmək istədiyinizdən əminsiniz?'
+    )
+
+    if (!confirmation) {
       return
     }
-    if (!date) {
-      alert('Zəhmət olmasa, tarix seçin!')
-      return
+
+    const updatedBlog = {
+      ...blog,
+      type,
+      title,
+      image,
+      summary,
+      date,
+      blocks,
     }
-
-    try {
-      const blogData = {
-        type,
-        title,
-        summary,
-        blocks,
-        image,
-        countryCode,
-        date: new Date(date).toLocaleDateString('az-AZ'),
-      }
-
-      // Növə əsasən fərqli Firebase funksiyası çağırılır
-      if (type === 'country') {
-        const newBlogId = await addCountryBlog(blogData)
-        alert(`Country blog successfully added! ID: ${newBlogId}`)
-      } else if (type === 'visa') {
-        const newBlogId = await addVisaBlog(blogData)
-        alert(`Visa blog successfully added! ID: ${newBlogId}`)
-      }
-
-      // Formu təmizləmək
-      setTitle('')
-      setSummary('')
-      setBlocks([])
-      setImage('')
-      setType('')
-      setDate('')
-      setCountryCode('')
-    } catch (error) {
-      console.error('Error adding blog:', error)
-      alert('Failed to add blog')
-    }
+    onUpdate(updatedBlog) // Blogu yenilə
   }
 
   return (
-    <form onSubmit={handleAddBlog} className="p-6 bg-gray-100 rounded-lg">
-      {/* Blog növü */}
+    <form onSubmit={handleSubmit} className="p-6 bg-gray-100 rounded-lg">
+      {/* Blog Növü */}
       <div className="mb-4">
         <label className="block text-sm font-medium">Blog Növü</label>
         <select
-          value={type}
+          value={type} // `type` state burda istifadə olunur
           onChange={(e) => setType(e.target.value)}
           className="w-full p-2 border rounded"
           required
@@ -100,12 +94,6 @@ const BlogForm = () => {
           <option value="visa">Visa</option>
         </select>
       </div>
-
-      <input
-        value={countryCode}
-        onChange={(e) => setCountryCode(e.target.value)}
-        placeholder="məsələn: italy-visa"
-      ></input>
 
       {/* Başlıq */}
       <div className="mb-4">
@@ -154,13 +142,27 @@ const BlogForm = () => {
         <h3 className="text-lg font-medium">Məzmun:</h3>
         {blocks.map((block, index) => (
           <div key={index} className="mb-4">
-            {block.type === 'text' && <p className="mb-2">{block.content}</p>}
-            {block.type === 'image' && (
-              <img
-                src={block.url}
-                alt={`Şəkil ${index + 1}`}
-                className="h-auto mx-auto w-30"
+            {block.type === 'text' && (
+              <textarea
+                value={block.content}
+                onChange={(e) => editBlock(index, e.target.value)}
+                className="w-full p-2 border rounded"
               />
+            )}
+            {block.type === 'image' && (
+              <>
+                <img
+                  src={block.url}
+                  alt={`Şəkil ${index + 1}`}
+                  className="h-auto mx-auto w-30"
+                />
+                <input
+                  type="text"
+                  value={block.url}
+                  onChange={(e) => editBlock(index, e.target.value)}
+                  className="w-full p-2 border rounded"
+                />
+              </>
             )}
           </div>
         ))}
@@ -176,22 +178,32 @@ const BlogForm = () => {
           className="w-full p-2 border rounded mb-2"
         />
         {isUploading && <p>Şəkil yüklənir...</p>}
-        {image && <img src={image} alt="Uploaded" className="mt-2 h-32" />}
-        <label className="block text-sm font-medium">Şəkil Yüklə</label>
+        {image && (
+          <div className="mt-2">
+            <p>Hazırkı Şəkil:</p>
+            <img src={image} alt="Uploaded" className="h-32" />
+          </div>
+        )}
+        <label className="block text-sm font-medium mt-4">
+          Yeni Şəkil Yüklə
+        </label>
         <input
           type="file"
           accept="image/*"
-          onChange={handleImageUpload}
+          onChange={handleImageUpload} // Yuxarıdakı funksiyanı burda istifadə edirik
           className="w-full p-2 border rounded"
         />
       </div>
 
+      {/* Qısa Mətn */}
       <textarea
         value={summary}
         onChange={(e) => setSummary(e.target.value)}
         className="w-full p-2 border rounded"
         placeholder="Blogun qısa məzmununu yazın"
       />
+
+      {/* Tarix */}
       <div className="mb-4">
         <label className="block text-sm font-medium">Tarix</label>
         <input
@@ -202,15 +214,24 @@ const BlogForm = () => {
         />
       </div>
 
-      {/* Blog yarat düyməsi */}
+      {/* Blogu Yenilə düyməsi */}
       <button
         type="submit"
         className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
       >
-        Bloq Yarat
+        Blogu Yenilə
+      </button>
+
+      {/* Cancel düyməsi */}
+      <button
+        type="button"
+        onClick={onCancel}
+        className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 ml-4"
+      >
+        Ləğv Et
       </button>
     </form>
   )
 }
 
-export default BlogForm
+export default EditBlogForm

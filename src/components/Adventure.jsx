@@ -6,7 +6,7 @@ export default function Adventure() {
 
   return (
     <div className="container mx-auto">
-      <section className="py-16 px-6">
+      <section className="pb-10 pt-32 px-6">
         <div className="lg:flex justify-between items-center pb-8">
           <h2 className="text-lg font-bold lg:text-4xl">
             {t('adventure.tickets_btn')}

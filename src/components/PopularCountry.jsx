@@ -86,10 +86,10 @@ const PopularCountry = () => {
               />
             </div>
             <div className="absolute top-0 flex flex-col items-center justify-center text-center text-black px-4">
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold">
+              <h2 className="text-lg sm:text-4xl lg:text-5xl font-bold">
                 {t('popularCountry.title1')}
               </h2>
-              <p className="text-md sm:text-xl font-bold pt-2 sm:pt-4">
+              <p className="text-xs sm:text-xl font-bold pt-2 sm:pt-4">
                 {t('popularCountry.title2')}
               </p>
             </div>

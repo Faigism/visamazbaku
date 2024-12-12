@@ -5,7 +5,7 @@ export default function Adventure() {
   const { t } = useTranslation()
 
   return (
-    <div className="container mx-auto">
+    <div className="mx-auto">
       <section className="pb-10 pt-32 px-6">
         <div className="lg:flex justify-between items-center pb-8">
           <h2 className="text-lg font-bold lg:text-4xl">

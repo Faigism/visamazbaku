@@ -43,7 +43,7 @@ export default function Navbar() {
     <>
       {!hideHeaderFooter && (
         <nav className="w-full flex flex-col justify-center items-center absolute top-0 z-50">
-          <div className="container mx-auto lg:px-3 w-full h-16 bg-slate-500">
+          <div className="pl-4 pr-4 mx-auto lg:px-3 w-full h-16 bg-slate-500">
             <div className="lg:w-full w-11/12 mx-auto h-full top-0 flex justify-between items-center">
               <div className="flex flex-col gap-y-4">
                 <div className="flex items-center gap-x-2">

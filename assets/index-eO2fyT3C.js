@@ -9420,7 +9420,8 @@ const L4 = () => {
             x.jsx('img', {
               src: '/assets/photos/langGlobe.png',
               alt: 'globe',
-              className: 'w-[2rem] h-[2rem] cursor-pointer',
+              className:
+                'w-[1.2rem] h-[1.2rem] lg:w-[1.6rem] lg:h-[1.6rem] cursor-pointer',
               onClick: d,
             }),
             r &&
@@ -10659,7 +10660,7 @@ function LL() {
           className:
             'w-full flex flex-col justify-center items-center absolute top-0 z-50',
           children: x.jsxs('div', {
-            className: 'container mx-auto lg:px-3 w-full h-16 bg-slate-500',
+            className: 'pl-4 pr-4 mx-auto lg:px-3 w-full h-16 bg-slate-500',
             children: [
               x.jsxs('div', {
                 className:
@@ -11851,7 +11852,7 @@ const dv = () => {
 function KL() {
   const { t } = jn()
   return x.jsx('div', {
-    className: 'container mx-auto',
+    className: 'mx-auto',
     children: x.jsxs('section', {
       className: 'pb-10 pt-32 px-6',
       children: [
@@ -33103,7 +33104,7 @@ function FV() {
           P = await Co(Li(br, 'blogs', 'visaBlogs', 'entries')),
           N = _.docs.map((D) => ({ id: D.id, ...D.data() })),
           V = P.docs.map((D) => ({ id: D.id, ...D.data() }))
-        r({ countryBlogs: N, visaBlogs: V }), console.log(n)
+        r({ countryBlogs: N, visaBlogs: V })
       } catch (_) {
         console.error('Error fetching blogs:', _)
       }
@@ -33128,7 +33129,7 @@ function FV() {
   }, [t, d])
   const g = l ? i : i.slice(0, 3)
   return x.jsx('div', {
-    className: 'container mx-auto',
+    className: 'mx-auto',
     children: x.jsxs('div', {
       className: 'relative rounded-bl-2xl rounded-br-2xl lg:h-[100vh]',
       children: [
@@ -33147,12 +33148,12 @@ function FV() {
           children: [
             x.jsx('h1', {
               className:
-                "relative text-white text-3xl lg:text-6xl font-bold lg:w-4/5 mx-auto text-center drop-shadow-md before:content-[''] before:absolute before:inset-0 before:bg-slate-600 before:opacity-50 before:rounded-lg before:-z-10",
+                "relative text-white text-xl lg:text-5xl font-bold w-4/5 mx-auto text-center drop-shadow-md before:content-[''] before:absolute before:inset-0 before:bg-slate-600 before:opacity-50 before:rounded-lg before:-z-10",
               children: f('hero.title'),
             }),
             x.jsx('p', {
               className:
-                "text-white text-lg lg:text-2xl mt-4 lg:mt-6 text-center font-medium lg:w-3/5 mx-auto opacity-80 drop-shadow-sm drop-shadow-md before:content-[''] before:absolute before:inset-0 before:bg-slate-600 before:opacity-50 before:rounded-lg before:-z-10",
+                "text-white text-sm lg:text-2xl mt-4 lg:mt-6 text-center font-medium w-3/5 mx-auto opacity-80 drop-shadow-sm drop-shadow-md before:content-[''] before:absolute before:inset-0 before:bg-slate-600 before:opacity-50 before:rounded-lg before:-z-10",
               children: f('hero.desc'),
             }),
             x.jsxs('div', {
@@ -33163,7 +33164,8 @@ function FV() {
                   placeholder: f('hero.search'),
                   value: t,
                   onChange: (y) => e(y.target.value),
-                  className: 'w-full p-3 rounded-lg text-black outline-none',
+                  className:
+                    'w-full p-3 rounded-lg text-black outline-none text-sm',
                 }),
                 i.length > 0 &&
                   x.jsxs('div', {
@@ -33180,7 +33182,7 @@ function FV() {
                             children: [
                               x.jsx('h2', {
                                 className:
-                                  'text-lg font-semibold text-gray-800 truncate',
+                                  'text-sm lg:text-lg font-semibold text-gray-800 truncate',
                                 children:
                                   y.title.length > 30
                                     ? y.title.slice(0, 30) + '...'
@@ -33304,11 +33306,11 @@ const jV = () => {
                     'absolute top-0 flex flex-col items-center justify-center text-center text-black px-4',
                   children: [
                     x.jsx('h2', {
-                      className: 'text-2xl sm:text-4xl lg:text-5xl font-bold',
+                      className: 'text-lg sm:text-4xl lg:text-5xl font-bold',
                       children: t('popularCountry.title1'),
                     }),
                     x.jsx('p', {
-                      className: 'text-md sm:text-xl font-bold pt-2 sm:pt-4',
+                      className: 'text-xs sm:text-xl font-bold pt-2 sm:pt-4',
                       children: t('popularCountry.title2'),
                     }),
                   ],

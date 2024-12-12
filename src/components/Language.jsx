@@ -50,7 +50,7 @@ const Language = () => {
       <img
         src="/assets/photos/langGlobe.png"
         alt="globe"
-        className="w-[2rem] h-[2rem] cursor-pointer"
+        className="w-[1.2rem] h-[1.2rem] lg:w-[1.6rem] lg:h-[1.6rem] cursor-pointer"
         onClick={toggleLanguageDropdown}
       />
       {languageDropdown && (

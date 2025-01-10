@@ -83,13 +83,18 @@ function App() {
     return <Loading />
   }
 
+  // basename={window.location.pathname || ''}
+
+  const isProduction = process.env.NODE_ENV === 'production'
+  const basename = isProduction ? '/repository-name' : ''
+
   return (
-    <Router>
+    <Router basename={basename}>
       {/* <ComingSoon /> */}
       <ToastContainer />
       <ScrollToTop />
       <Navbar />
-      <Routes basename={window.location.pathname || ''}>
+      <Routes>
         <Route
           path={import.meta.env.VITE_ADMIN_PANEL}
           element={

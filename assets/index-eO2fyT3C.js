@@ -35675,24 +35675,32 @@ const cI = async (t) => {
     )
   },
   c5 = () =>
-    x.jsxs('div', {
-      className: 'container mx-auto py-12 px-4 md:px-8 text-center mt-28',
-      children: [
-        x.jsx('h1', { className: 'text-5xl font-bold mb-4', children: '404' }),
-        x.jsx('p', {
-          className: 'text-2xl mb-4',
-          children: 'Üzgünüz, sayfa bulunamadı.',
-        }),
-        x.jsx('p', {
-          className: 'text-lg text-gray-600 mb-8',
-          children: 'Aradığınız sayfa mevcut değil veya adres yanlış girilmiş.',
-        }),
-        x.jsx(ct, {
-          to: '/',
-          className: 'text-blue-500 hover:underline text-xl font-medium',
-          children: 'Ana sayfaya dön',
-        }),
-      ],
+    x.jsx('div', {
+      className: 'flex items-center justify-center h-screen bg-gray-50 px-4',
+      children: x.jsxs('div', {
+        className: 'text-center',
+        children: [
+          x.jsx('h1', {
+            className: 'text-9xl font-extrabold text-gray-900 mb-4',
+            children: '404',
+          }),
+          x.jsx('p', {
+            className: 'text-2xl md:text-3xl font-semibold text-gray-800 mb-2',
+            children: 'Oops, This Page Not Found!',
+          }),
+          x.jsx('p', {
+            className: 'text-gray-500 mb-6',
+            children:
+              'The link might be corrupted, or the page may have been removed.',
+          }),
+          x.jsx(ct, {
+            to: '/',
+            className:
+              'px-6 py-3 bg-black text-white font-medium rounded hover:bg-gray-800 transition duration-300',
+            children: 'GO BACK HOME',
+          }),
+        ],
+      }),
     }),
   h5 = () => {
     const { t } = jn()

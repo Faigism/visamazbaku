@@ -36394,7 +36394,7 @@ function v5() {
     r
       ? x.jsx(hI, {})
       : x.jsxs(PL, {
-          basename: '/',
+          basename: window.location.pathname,
           children: [
             x.jsx(HL, {}),
             x.jsx(f5, {}),

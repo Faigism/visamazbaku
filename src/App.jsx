@@ -87,7 +87,7 @@ function App() {
   // basename={window.location.pathname || ''}
 
   return (
-    <Router basename={window.location.pathname}>
+    <Router basename="/">
       {/* <ComingSoon /> */}
       <ToastContainer />
       <ScrollToTop />

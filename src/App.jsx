@@ -84,26 +84,15 @@ function App() {
     return <Loading />
   }
 
-  function RedirectToPath() {
-    const location = useLocation()
-    const search = new URLSearchParams(location.search)
-    const redirectPath = search.get('/')
-
-    if (redirectPath) {
-      return <Navigate to={redirectPath} replace />
-    }
-
-    return null
-  }
+  // basename={window.location.pathname || ''}
 
   return (
-    <Router>
+    <Router basename="/">
       {/* <ComingSoon /> */}
       <ToastContainer />
-      <RedirectToPath />
       <ScrollToTop />
       <Navbar />
-      <Routes basename={window.location.pathname || ''}>
+      <Routes>
         <Route
           path={import.meta.env.VITE_ADMIN_PANEL}
           element={

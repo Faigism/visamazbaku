@@ -5,10 +5,8 @@
     <title>Redirecting...</title>
     <script>
       var pathname = window.location.pathname
-
-      if (pathname !== '/') {
-        window.location.replace('/?' + pathname)
-      }
+      var redirectUrl = '/index.html' + pathname
+      window.location.replace(redirectUrl)
     </script>
   </head>
   <body></body>

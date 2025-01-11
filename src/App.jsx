@@ -6,6 +6,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useLocation,
 } from 'react-router-dom'
 import About from './pages/About'
 import Home from './components/Home'
@@ -83,10 +84,23 @@ function App() {
     return <Loading />
   }
 
+  function RedirectToPath() {
+    const location = useLocation()
+    const search = new URLSearchParams(location.search)
+    const redirectPath = search.get('/')
+
+    if (redirectPath) {
+      return <Navigate to={redirectPath} replace />
+    }
+
+    return null
+  }
+
   return (
     <Router>
       {/* <ComingSoon /> */}
       <ToastContainer />
+      <RedirectToPath />
       <ScrollToTop />
       <Navbar />
       <Routes basename={window.location.pathname || ''}>

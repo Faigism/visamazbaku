@@ -84,6 +84,12 @@ export default function Navbar() {
                 >
                   {t('AboutUs')}
                 </Link>
+                <Link
+                  to="/səfirliklər"
+                  className="leading-normal no-underline text-white text-lg hover:text-black"
+                >
+                  səfirliklər
+                </Link>
               </ul>
               <div className="flex items-center gap-7">
                 <Language />

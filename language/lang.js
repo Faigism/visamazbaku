@@ -68,11 +68,11 @@ i18n.use(initReactI18next).init({
 
         footer: {
           aboutH5: 'About us',
-          about: {
-            features: 'Features',
-            news: 'News',
-            plans: 'Plans',
-          },
+          // about: {
+          //   features: 'Features',
+          //   news: 'News',
+          //   plans: 'Plans',
+          // },
           businessH5: 'Business',
           business: {
             whyBusiness: 'Why visamazbaku',
@@ -189,8 +189,8 @@ i18n.use(initReactI18next).init({
             'Mərkəzimizə daha çox bu ölkələrin vizaları ilə bağlı sual daxil olur.',
           germany: 'Almaniya',
           italy: 'Italiya',
-          thailand: 'Tayland',
-          austria: 'Avstria',
+          thailand: 'Tailand',
+          austria: 'Avstriya',
           france: 'Fransa',
           usa: 'ABŞ',
           canada: 'Kanada',

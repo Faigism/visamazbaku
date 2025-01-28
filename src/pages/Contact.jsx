@@ -10,12 +10,13 @@ const Contact = () => {
   }
 
   return (
-    <div className="mx-auto px-6 py-8 mt-28">
+    <div className="mx-auto px-6 py-8 mt-16 bg-gray-100">
       <div className="text-center mb-12">
         <h2 className="text-[#61cad0] text-3xl lg:text-4xl font-bold mb-4">
           {t('aboutUs.aboutH2')}
         </h2>
       </div>
+      <ContactForm />
       <div className="flex flex-col lg:flex-row gap-8 mb-12 justify-around items-center">
         <div className="bg-[#004653] text-white p-8 rounded-[50px] flex-1 max-w-3xl h-[450px] leading-10">
           <div className="text-4xl mb-4">
@@ -79,8 +80,6 @@ const Contact = () => {
           />
         </div>
       </div>
-
-      <ContactForm />
     </div>
   )
 }

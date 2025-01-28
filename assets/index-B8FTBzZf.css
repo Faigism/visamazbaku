@@ -1176,6 +1176,9 @@ video {
 .mt-10 {
   margin-top: 2.5rem;
 }
+.mt-16 {
+  margin-top: 4rem;
+}
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -1644,6 +1647,9 @@ video {
 .pb-10 {
   padding-bottom: 2.5rem;
 }
+.pb-20 {
+  padding-bottom: 5rem;
+}
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -2093,6 +2099,9 @@ video {
   .max-lg\:hidden {
     display: none;
   }
+  .max-lg\:pt-\[200px\] {
+    padding-top: 200px;
+  }
 }
 @media (min-width: 640px) {
   .sm\:top-\[150px\] {
@@ -2256,6 +2265,9 @@ video {
   }
 }
 @media (min-width: 1280px) {
+  .xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
   .xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }

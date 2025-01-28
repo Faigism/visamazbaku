@@ -16,7 +16,7 @@ export default function Footer() {
     <>
       {!hideHeaderFooter && (
         <footer className="bg-white border-t border-solid mt-10">
-          <div className="container mx-auto grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 px-4 py-8">
+          <div className="container mx-auto grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 px-4 py-8">
             <div>
               <div className="text-center font-extrabold text-[#4577b2]">
                 <div
@@ -71,7 +71,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="w-36">
+            {/* <div className="w-36">
               <h5 className="font-semibold text-lg pb-4">
                 {t('footer.aboutH5')}
               </h5>
@@ -86,7 +86,7 @@ export default function Footer() {
                   <Link to="/about">{t('footer.about.plans')}</Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
             <div className="w-36">
               <h5 className="font-semibold text-lg pb-4">

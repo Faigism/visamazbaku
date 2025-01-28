@@ -83,7 +83,7 @@ export default function Hero() {
           />
         </div>
         <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center h-full ">
-          <h1 className="relative text-white text-xl lg:text-5xl font-bold w-4/5 mx-auto text-center drop-shadow-md before:content-[''] before:absolute before:inset-0 before:bg-slate-600 before:opacity-50 before:rounded-lg before:-z-10">
+          <h1 className="relative text-white text-xl lg:text-4xl font-bold w-4/5 mx-auto text-center drop-shadow-md before:content-[''] before:absolute before:inset-0 before:bg-slate-600 before:opacity-50 before:rounded-lg before:-z-10">
             {t('hero.title')}
           </h1>
           <p className="text-white text-sm lg:text-2xl mt-4 lg:mt-6 text-center font-medium w-3/5 mx-auto opacity-80 drop-shadow-sm drop-shadow-md before:content-[''] before:absolute before:inset-0 before:bg-slate-600 before:opacity-50 before:rounded-lg before:-z-10">

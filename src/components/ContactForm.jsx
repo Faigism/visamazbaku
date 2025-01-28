@@ -174,8 +174,8 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="bg-gray-100 py-16">
-      <div className="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-16">
+    <section className="pt-2 pb-20">
+      <div className="container mx-auto flex flex-col lg:flex-row gap-16">
         <div className="lg:w-1/2">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
             {t('contactForm.title')}
@@ -190,7 +190,7 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* <div className="lg:w-1/2 bg-white p-8 rounded-lg shadow-lg">
+        <div className="lg:w-1/2 bg-white p-8 rounded-lg shadow-lg">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label className="block text-gray-700 font-medium" htmlFor="name">
@@ -294,7 +294,7 @@ export default function ContactForm() {
               {isSubmitting ? t('loading') : t('contactForm.formBtn')}
             </button>
           </form>
-        </div> */}
+        </div>
       </div>
     </section>
   )

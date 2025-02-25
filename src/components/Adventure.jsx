@@ -5,10 +5,10 @@ export default function Adventure() {
   const { t } = useTranslation()
 
   return (
-    <div className="mx-auto max-lg:pt-[200px]">
+    <div className="mx-auto max-lg:pt-[100px]">
       <section className="pb-10 pt-32 px-6">
         <div className="lg:flex justify-between items-center pb-8">
-          <h2 className="text-lg font-bold lg:text-4xl">
+          <h2 className="text-lg font-bold lg:text-3xl">
             {t('adventure.tickets_btn')}
           </h2>
           <RedirectContact />

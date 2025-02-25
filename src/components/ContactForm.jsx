@@ -55,13 +55,17 @@ export default function ContactForm() {
   }
 
   async function checkEmailExists(email) {
-    const apiKey = import.meta.env.VITE_EMAIL_VALIDATION_API_KEY
+    console.log(email)
 
-    const response = await fetch(
-      `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${email}`
-    )
-    const data = await response.json()
-    return data.is_valid_format.value && data.deliverability === 'DELIVERABLE'
+    // const apiKey = import.meta.env.VITE_EMAIL_VALIDATION_API_KEY
+
+    // const response = await fetch(
+    //   `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${email}`
+    // )
+    // console.log(response)
+
+    // const data = await response.json()
+    // return data.is_valid_format.value && data.deliverability === 'DELIVERABLE'
   }
 
   const handleSubmit = async (e) => {

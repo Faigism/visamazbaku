@@ -9,6 +9,7 @@ i18n.use(initReactI18next).init({
         Blog: 'Blogs',
         ContactUs: 'Contact Us',
         AboutUs: 'About Us',
+        EmbassiesUs: 'Embassies',
 
         apply: 'Apply',
         loading: 'Loading...',
@@ -60,10 +61,11 @@ i18n.use(initReactI18next).init({
           france: 'France',
           usa: 'USA',
           canada: 'Canada',
+          unitedKingdom: 'United-Kingdom',
         },
 
         adventure: {
-          tickets_btn: 'Book tickets and go now!',
+          tickets_btn: 'Get your visa now and travel.',
         },
 
         footer: {
@@ -143,6 +145,7 @@ i18n.use(initReactI18next).init({
         Blog: 'Bloqlar',
         ContactUs: 'Əlaqə',
         AboutUs: 'Haqqımızda',
+        EmbassiesUs: 'Səfirliklər',
 
         apply: 'Müraciət et',
         loading: 'Yüklənir...',
@@ -194,10 +197,11 @@ i18n.use(initReactI18next).init({
           france: 'Fransa',
           usa: 'ABŞ',
           canada: 'Kanada',
+          unitedKingdom: 'İngiltərə',
         },
 
         adventure: {
-          tickets_btn: 'Biletləri rezerv et və indi get!',
+          tickets_btn: 'Vizanı indi al və səyahət et',
         },
 
         footer: {
@@ -277,6 +281,7 @@ i18n.use(initReactI18next).init({
         Blog: 'Блоги',
         ContactUs: 'Контакты',
         AboutUs: 'О нас',
+        EmbassiesUs: 'Посольства',
 
         apply: 'Обратиться',
         loading: 'Загрузка...',
@@ -330,10 +335,11 @@ i18n.use(initReactI18next).init({
           france: 'Франция',
           usa: 'США',
           canada: 'Канада',
+          unitedKingdom: 'Великобритания',
         },
 
         adventure: {
-          tickets_btn: 'Забронируй билеты и поехали прямо сейчас!',
+          tickets_btn: 'Получите визу сейчас и путешествуйте',
         },
 
         footer: {

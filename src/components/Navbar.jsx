@@ -141,6 +141,13 @@ export default function Navbar() {
                   >
                     {t('AboutUs')}
                   </Link>
+                  <Link
+                    to="/embassies"
+                    className="text-white font-bold text-lg hover:bg-white/20 px-4 py-2 rounded transition"
+                    onClick={closeDropdown}
+                  >
+                    {t('EmbassiesUs')}
+                  </Link>
                 </ul>
               </div>
             )}

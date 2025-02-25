@@ -26,15 +26,66 @@ const BlogForm = () => {
     }
   }
 
+  const formatText = (text) => {
+    const regex = /"(.*?)"|\*\*(.*?)\*\*|\*(.*?)\*|~~(.*?)~~|_(.*?)_/g // "..." (* üçün), **bold**, *qırmızı*, ~~mavi~~, _italic_
+
+    return text.split(regex).map((part, index) => {
+      if (index % 6 === 5 && part) {
+        // _ ilə başlayan və bitən italic mətnlər
+        return <em key={index}>{part}</em>
+      } else if (index % 6 === 4 && part) {
+        // ~~ ilə başlayan və bitən mavi mətnlər
+        return (
+          <span key={index} style={{ color: '#5accd3' }}>
+            {part}
+          </span>
+        )
+      } else if (index % 6 === 3 && part) {
+        // * ilə başlayan və bitən qırmızı mətnlər
+        return (
+          <span key={index} style={{ color: 'red' }}>
+            {part}
+          </span>
+        )
+      } else if (index % 6 === 2 && part) {
+        // ** ilə başlayan və bitən bold mətnlər
+        return <strong key={index}>{part}</strong>
+      } else if (index % 6 === 1 && part === '*') {
+        // Dırnaq içində * qırmızı olacaq
+        return (
+          <span key={index} style={{ color: 'red' }}>
+            *
+          </span>
+        )
+      }
+      return <span key={index}>{part}</span>
+    })
+  }
+
   // Blok əlavə etmək funksiyası
-  const addBlock = (type, content) => {
+  const addBlock = (content) => {
     if (!content.trim()) return
-    const newBlock =
-      type === 'image'
-        ? { type, url: content } // Şəkil üçün `url`
-        : { type, text: content } // Mətn üçün `text`
+
+    let newBlock
+
+    if (content.startsWith('##')) {
+      newBlock = { type: 'header', text: content.replace('##', '').trim() }
+    } else if (isValidImageUrl(content)) {
+      newBlock = { type: 'image', url: content.trim() }
+    } else {
+      newBlock = { type: 'text', text: content }
+    }
+
+    console.log(content)
+
+    console.log(newBlock)
 
     setBlocks([...blocks, newBlock])
+  }
+
+  // Şəkil URL-nin düzgün olub-olmadığını yoxlayan funksiya
+  const isValidImageUrl = (url) => {
+    return /^https?:\/\/.*\.(jpg|jpeg|png|gif|webp)$/i.test(url)
   }
 
   // Blog əlavə etmək funksiyası
@@ -125,23 +176,24 @@ const BlogForm = () => {
           Mətn və ya Şəkil Əlavə Et
         </label>
         <textarea
-          placeholder="Mətn əlavə edin (Enter basın)"
+          placeholder="Mətn əlavə edin (Başlıq üçün '##' yazın və Enter basın)"
           onKeyDown={(e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
               e.preventDefault()
-              addBlock('text', e.target.value)
+              addBlock(e.target.value)
               e.target.value = ''
             }
           }}
           className="w-full p-2 mb-2 border rounded"
-        ></textarea>
+        />
+
         <input
           type="text"
           placeholder="Şəkil URL-i əlavə edin (Enter basın)"
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               e.preventDefault()
-              addBlock('image', e.target.value)
+              addBlock(e.target.value.trim())
               e.target.value = ''
             }
           }}
@@ -154,7 +206,12 @@ const BlogForm = () => {
         <h3 className="text-lg font-medium">Məzmun:</h3>
         {blocks.map((block, index) => (
           <div key={index} className="mb-4">
-            {block.type === 'text' && <p className="mb-2">{block.content}</p>}
+            {block.type === 'header' && (
+              <h2 className="text-xl font-bold">{block.text}</h2>
+            )}
+            {block.type === 'text' && (
+              <p className="mb-2">{formatText(block.text)}</p>
+            )}
             {block.type === 'image' && (
               <img
                 src={block.url}

@@ -63,6 +63,11 @@ const PopularCountry = () => {
       flag: '/assets/photos/canada.png',
       countryCode: 'canada-visa',
     },
+    {
+      name: t('popularCountry.unitedKingdom'),
+      flag: '/assets/photos/united-kingdom.png',
+      countryCode: 'unitedKingdom-visa',
+    },
   ]
 
   const getBlogIdByCountry = (countryCode) => {
@@ -85,8 +90,8 @@ const PopularCountry = () => {
                 className="absolute top-0 left-0 w-full h-full object-cover"
               />
             </div>
-            <div className="absolute top-0 flex flex-col items-center justify-center text-center text-black px-4">
-              <h2 className="text-lg sm:text-4xl lg:text-5xl font-bold">
+            <div className="absolute top-[-2%] left-1/2 transform -translate-x-1/2 w-full max-w-3xl flex flex-col items-center text-black px-4">
+              <h2 className="text-lg sm:text-4xl lg:text-3xl font-bold text-center">
                 {t('popularCountry.title1')}
               </h2>
               <p className="text-xs sm:text-xl font-bold pt-2 sm:pt-4">
@@ -96,7 +101,7 @@ const PopularCountry = () => {
           </div>
 
           {/* Grid Section */}
-          <div className="absolute top-[150px] sm:top-[150px] left-1/2 transform -translate-x-1/2 w-full px-4">
+          <div className="absolute top-[180px] sm:top-[180px] left-1/2 transform -translate-x-1/2 w-full px-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-14">
               {countries.map((country, index) => {
                 const blogId = getBlogIdByCountry(country.countryCode)
